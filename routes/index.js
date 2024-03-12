@@ -1,11 +1,10 @@
-import { Router } from 'express';
+import express from 'express';
 import AppController from '../controllers/AppController';
+import UsersController from '../controllers/UsersController';
 import AuthController from '../controllers/AuthController';
 import FilesController from '../controllers/FilesController';
-import UsersController from '../controllers/UsersController';
 
-
-const router = Router();
+const router = express.Router();
 
 router.get('/status', AppController.getStatus);
 router.get('/stats', AppController.getStats);
@@ -20,4 +19,5 @@ router.get('/files/:id/data', FilesController.getFile);
 router.post('/users', UsersController.postNew);
 router.get('/users/me', UsersController.getMe);
 
-module.exports = router;
+
+export default router;
